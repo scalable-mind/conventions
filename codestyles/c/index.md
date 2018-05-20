@@ -43,7 +43,7 @@ struct MyStruct {
 
 **`#include`** statements order:
 - alphabetic;
-- system `->` libs `->` user-defined;
+- system → libs → user-defined;
 
 Example:
 ``` C
@@ -59,7 +59,7 @@ Example:
 // code starts here
 ```
 
-> :information_source: As many of text editors support `.editorconfig` files for maintaining consistency of codestyles, you can place one in the root directory of a project. You can download it [here](https://raw.githubusercontent.com/scalable-mind/public-assets/master/editorconfig/.editorconfig) just pressed `Ctrl+S` ([about EditorConfig](http://editorconfig.org/)).
+> :information_source: As many text editors support `.editorconfig` files for maintaining consistency of codestyles, you can place one in the root directory of a project. You can download it [here](https://raw.githubusercontent.com/scalable-mind/public-assets/master/editorconfig/.editorconfig) just pressed `Ctrl+S` ([about EditorConfig](http://editorconfig.org/)).
 
 ## Naming
 
@@ -108,6 +108,8 @@ A *module* is a C structure containing a set of function pointers. The main goal
 
 Any module's definitioin consists of two parts: a **structure** that contains all the function pointers, and a special **function** that returns the same instance of the module. We will define and implement a simple module called `MyModule`.
 
+The module's instance function should be designed as a *singleton*: it always returns the same instance of the module. The module instance should be stored in a static variable in its instance function's scope. The function also attaches the implementations of the module methods to the function pointers in the module instance verifying they are not `NULL`s. The methods implementations should be defined as `static`, so they will remain outside the global scope. So all implementations should be defined in the same file.
+
 > :page_facing_up: `./my_module.h`:
 ```c
 #ifndef MY_MODULE_H
@@ -128,7 +130,7 @@ MyModule my_module();
 ```c
 #include "./my_module.h"
 
-static void do_something() {
+static void do_something() {    // is seen only inside my_module_impl.c
     // some operations
 }
 
@@ -154,7 +156,7 @@ If the module contains some utility functions, then the module is considered as 
 #### 2. API Modules
 If the module is designed around some data structure ("class"), then the module is considered as an API for this particular data structure. We'll call this *API module*.
 
-API modules may define and implement some methods for creating/deleting objects they designed for. These methods should be called as `init` and `del` respectively. We will define an API module called `MyDataModule` whose methods perform actions on the `MyData` structure.
+API modules may define and implement some methods for creating/deleting objects they designed for. These methods should be called as `init` and `del` respectively. We will define an API module called `MyDataApi` whose methods perform actions on the `MyData` structure.
 
 > :page_facing_up: `./my_data.h`:
 ```c
