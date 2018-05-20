@@ -59,6 +59,8 @@ Example:
 // code starts here
 ```
 
+> :information_source: As many of text editors support `.editorconfig` files for maintaining consistency of codestyles, you can place one in the root directory of a project. You can download it [here](https://https://raw.githubusercontent.com/scalable-mind/conventions/codestyles/c/assets/.editorconfig) just pressed `Ctrl+S` ([about EditorConfig](http://editorconfig.org/)).
+
 ## Naming
 
 ### Variables
