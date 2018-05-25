@@ -59,7 +59,7 @@ Example:
 // code starts here
 ```
 
-> :information_source: As many text editors support `.editorconfig` files for maintaining consistency of codestyles, you can place one in the root directory of a project. You can download it [here](https://raw.githubusercontent.com/scalable-mind/public-assets/master/editorconfig/.editorconfig) just pressed `Ctrl+S` ([about EditorConfig](http://editorconfig.org/)).
+> :information_source: As many text editors support `.editorconfig` files for maintaining consistency of codestyles, you can place one in the root directory of a project. You can download it [here](https://raw.githubusercontent.com/scalable-mind/public-assets/master/editorconfig/.editorconfig) by just pressing `Ctrl+S` ([about EditorConfig](http://editorconfig.org/)).
 
 ## Naming
 
